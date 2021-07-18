@@ -1,11 +1,25 @@
 import React from 'react';
+import Dashboard from './pages/Dashboard'
+import Error from './pages/Error'
+import Login from './pages/Login'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <>
-      <h1>Hello World!</h1>
-    </>
-  );
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Dashboard />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path='*'>
+          <Error />
+        </Route>
+      </Switch>
+    </Router>
+  )
 }
 
 export default App;
